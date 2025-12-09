@@ -1,0 +1,55 @@
+# Mission-Critical Flutter
+# Copyright (c) 2025 Carlos Phillips / Mission-Critical Flutter
+# This file is part of the "Mission-Critical Flutter" reference implementation.
+# It strictly adheres to the architectural rules defined in the book.
+# Author: Carlos Phillips
+# License: MIT (see LICENSE file)
+
+# MCF Rule 3.2 (Shall): Use a strict baseline.
+include: package:very_good_analysis/analysis_options.yaml
+
+analyzer:
+  # MCF Rule 3.1 (Shall): Enforce strict type checking modes.
+  language:
+    strict-casts: true      # Prevents 'dynamic' from silently becoming a specific type.
+    strict-inference: true  # Forces type annotation when the analyzer cannot determine it.
+    strict-raw-types: true  # Disallows 'List' without a type parameter.
+
+  # Treat specific violations as fatal build errors (Zero Tolerance).
+  errors:
+    # Safety Violations
+    avoid_dynamic_calls: error      # Calling methods on 'dynamic' is a runtime crash risk.
+    invalid_assignment: error
+    missing_return: error
+    dead_code: error
+    
+    # Maintainability Violations
+    always_declare_return_types: error
+    avoid_print: error              # Production code must use a Logger, not print().
+
+  # Files to exclude from rigorous analysis (e.g., generated code).
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "test/.test_coverage.dart"
+
+linter:
+  rules:
+    # --- Type Safety & Null Safety (MCF Chapter 3) ---
+    avoid_dynamic_calls: true
+    always_specify_types: false     # Kept false to allow 'var' when inference is strictly safe.
+    
+    # --- Immutability & Constants (MCF Rule 3.6) ---
+    prefer_const_constructors: true
+    prefer_const_declarations: true
+    prefer_const_literals_to_create_immutables: true
+    use_key_in_widget_constructors: true
+    avoid_unnecessary_containers: true
+    
+    # --- Error Handling (MCF Rule 3.11) ---
+    empty_catches: true
+    avoid_catches_without_on_clauses: true
+    
+    # --- Logic & Control Flow ---
+    always_put_control_body_on_new_line: true
+    curly_braces_in_flow_control_structures: true

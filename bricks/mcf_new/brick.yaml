@@ -1,0 +1,17 @@
+name: mcf_new
+description: Scaffolds a complete Mission-Critical Flutter project structure.
+version: 1.0.0
+environment:
+  mason: ">=0.1.0 <0.2.0"
+
+vars:
+  project_name:
+    type: string
+    description: The name of the project
+    default: my_mission_critical_app
+    prompt: What is the project name?
+  org_name:
+    type: string
+    description: The organization domain (reverse notation)
+    default: com.example
+    prompt: What is the organization (e.g. com.kxgold)?
