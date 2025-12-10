@@ -15,21 +15,20 @@ import 'package:mocktail/mocktail.dart';
 
 // Dynamic Imports for the generated project
 import 'package:{{project_name.snakeCase()}}/presentation/cubit/user_cubit.dart';
-import 'package:{{project_name.snakeCase()}}/presentation/cubit/user_state.dart';
 import 'package:{{project_name.snakeCase()}}/presentation/screens/profile_screen.dart';
 
 // FIX: Extend 'MockCubit' (singular), not 'MockCubits'.
-// This provides the missing implementations for streams and state emission.
 class MockUserCubit extends MockCubit<UserState> implements UserCubit {}
 
 void main() {
-  testWidgets('renders ErrorDisplay when state is UserError', (tester) async {
+  testWidgets('renders ErrorDisplay when state is UserFailure', (tester) async {
     // Arrange
     final mockCubit = MockUserCubit();
 
-    // Stub the state to return UserError immediately
+    // Stub the state to return UserFailure immediately
+    // Note: We use UserFailure here, not UserError, matching your user_state.dart
     when(() => mockCubit.state).thenReturn(
-      const UserError('System Down'),
+      const UserFailure('System Down'),
     );
 
     // Act: Pump the widget tree with the Mock Cubit injected

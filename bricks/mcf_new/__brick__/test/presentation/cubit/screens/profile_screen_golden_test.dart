@@ -13,8 +13,6 @@ When a user runs this test for the first time,
 it will fail because the reference image (goldens/crew_display_commander.png) 
 doesn't exist yet. They will need to run:
  flutter test --update-goldens
-
-
 */
 
 import 'package:bloc_test/bloc_test.dart'; // REQUIRED
@@ -28,7 +26,7 @@ import 'package:{{project_name.snakeCase()}}/domain/entities/address.dart';
 import 'package:{{project_name.snakeCase()}}/domain/entities/company.dart';
 import 'package:{{project_name.snakeCase()}}/domain/entities/user.dart';
 import 'package:{{project_name.snakeCase()}}/presentation/cubit/user_cubit.dart';
-import 'package:{{project_name.snakeCase()}}/presentation/cubit/user_state.dart';
+// NOTE: user_state.dart is a 'part of' user_cubit, so we don't import it directly.
 import 'package:{{project_name.snakeCase()}}/presentation/screens/profile_screen.dart';
 
 // 1. Create a Mock Cubit
