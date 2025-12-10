@@ -5,7 +5,7 @@
   "packages": [
     {
       "name": "mcf_cli",
-      "version": "1.0.12",
+      "version": "1.0.13",
       "dependencies": [
         "args",
         "mason_cli",

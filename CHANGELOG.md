@@ -1,3 +1,8 @@
+## 1.0.13
+- Fix: Moved `widget_test.dart` to the root `test/` directory to correctly overwrite the default Flutter test file.
+- Fix: Resolved file collision where `flutter test` would fail due to duplicate widget tests (one checking `MyApp`, one checking `MissionCriticalApp`).
+- Fix: All generated tests now pass strict linting and execution immediately after creation.
+
 ## 1.0.12
 - Fix: Updated `analysis_options.yaml` to exclude `tool/` from linting and disabled `directives_ordering` to support dynamic template names.
 - Fix: Resolved all strict linter warnings in generated code (imports, line lengths, doc comments, trailing commas).
