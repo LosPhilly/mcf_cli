@@ -1,6 +1,6 @@
 name: mcf_cli
 description: The official CLI for Mission-Critical Flutter. Generates forensic-grade architecture, enforces strict compliance, and audits existing projects.
-version: 1.0.1
+version: 1.0.8
 homepage: https://github.com/LosPhilly/mission-critical-flutter
 repository: https://github.com/LosPhilly/mission-critical-flutter
 issue_tracker: https://github.com/LosPhilly/mission-critical-flutter/issues

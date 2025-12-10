@@ -14,10 +14,10 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
-import '../../domain/entities/user.dart';
-import '../../domain/failures/failure.dart';
-import '../../domain/repositories/i_user_repository.dart';
-import '../models/user_model.dart';
+import 'package:{{project_name.snakeCase()}}/domain/entities/user.dart';
+import 'package:{{project_name.snakeCase()}}/domain/repositories/failures/failure.dart';
+import 'package:{{project_name.snakeCase()}}/domain/repositories/i_user_repository.dart';
+import 'package:{{project_name.snakeCase()}}/data/models/user_model.dart';
 
 // 1. Define a top-level function (or static method) for the Isolate to run.
 // Isolates cannot share memory, so this function must be standalone.
@@ -31,7 +31,7 @@ class UserRepositoryImpl implements IUserRepository {
   UserRepositoryImpl({required this.client});
 
   @override
-  Future<User> getUserProfile() async {
+  Future<User> getUser() async {
     try {
       final response = await client.get(
         Uri.parse('https://jsonplaceholder.typicode.com/users/1'),

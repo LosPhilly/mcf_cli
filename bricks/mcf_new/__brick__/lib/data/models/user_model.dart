@@ -8,9 +8,9 @@
  */
 
 /// lib\data\models\user_model.dart
-import '../../domain/entities/address.dart';
-import '../../domain/entities/company.dart';
-import '../../domain/entities/user.dart';
+import 'package:{{project_name.snakeCase()}}/domain/entities/address.dart';
+import 'package:{{project_name.snakeCase()}}/domain/entities/company.dart';
+import 'package:{{project_name.snakeCase()}}/domain/entities/user.dart';
 
 /// A Data Transfer Object (DTO) that extends the Domain Entity.
 /// This keeps the Domain pure (no JSON code in lib/domain).

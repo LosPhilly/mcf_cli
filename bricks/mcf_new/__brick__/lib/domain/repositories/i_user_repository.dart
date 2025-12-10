@@ -7,17 +7,16 @@
  * License: MIT (see LICENSE file)
  */
 
-import '../entities/{{name.snakeCase()}}.dart';
-import '../failures/failure.dart';
+import 'package:{{project_name.snakeCase()}}/domain/entities/user.dart';
+import 'package:{{project_name.snakeCase()}}/domain/repositories/failures/failure.dart';
 
-/// Contract for {{name.pascalCase()}} data operations.
+/// Contract for User data operations.
 /// MCF Rule 2.2: The Presentation Layer depends on this interface, not the implementation.
-abstract class I{{name.pascalCase()}}Repository {
-  
-  /// Fetches the {{name.pascalCase()}} data.
+abstract class IUserRepository {
+  /// Fetches the User data.
   /// Throws [Failure] on error.
-  Future<{{name.pascalCase()}}> get{{name.pascalCase()}}(String id);
+  Future<User> getUser(String id);
 
-  /// Saves the {{name.pascalCase()}}.
-  Future<void> save{{name.pascalCase()}}({{name.pascalCase()}} item);
+  /// Saves the User.
+  Future<void> saveUser(User item);
 }

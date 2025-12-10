@@ -59,7 +59,7 @@ void main() {
     blocTest<UserCubit, UserState>(
       'emits [UserLoading, UserLoaded] when loadProfile succeeds',
       build: () {
-        when(() => mockRepo.getUserProfile()).thenAnswer(
+        when(() => mockRepo.getUser()).thenAnswer(
           (_) async => const User(
             id: '1',
             name: 'Test',
@@ -87,7 +87,7 @@ void main() {
     blocTest<UserCubit, UserState>(
       'emits [UserLoading, UserError] when repo throws ServerFailure',
       build: () {
-        when(() => mockRepo.getUserProfile()).thenThrow(
+        when(() => mockRepo.getUser()).thenThrow(
           const ServerFailure('500 Internal Error'),
         );
         return cubit;

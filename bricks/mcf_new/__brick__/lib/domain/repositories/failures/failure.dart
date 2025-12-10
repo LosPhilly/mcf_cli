@@ -1,9 +1,9 @@
 /*
  * Mission-Critical Flutter
- * Copyright (c) 2025 {{authors.first.name}} / 505 Tech Support
+ * Copyright (c) 2025 Carlos Phillips / Mission-Critical Flutter
  * This file is part of the "Mission-Critical Flutter" reference implementation.
  * It strictly adheres to the architectural rules defined in the book.
- * Author: {{authors.first.name}}
+ * Author: Carlos Phillips
  * License: MIT (see LICENSE file)
  */
 
