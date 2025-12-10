@@ -1,3 +1,7 @@
+## 1.0.10
+- Fix: Resolved `part of` import errors in generated tests (`profile_screen_test.dart` now imports `user_cubit.dart`).
+- Fix: Corrected mismatched state class naming in tests (`UserError` → `UserFailure`).
+
 ## 1.0.9
 - Fix: Resolved `part of` import errors in generated tests (`profile_screen_test.dart`).
 - Fix: Corrected mismatched state names in tests (`UserError` → `UserFailure`).
