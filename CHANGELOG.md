@@ -1,3 +1,8 @@
+## 1.0.9
+- Fix: Resolved `part of` import errors in generated tests (`profile_screen_test.dart`).
+- Fix: Corrected mismatched state names in tests (`UserError` → `UserFailure`).
+- Fix: Gracefully handle audit failures in CLI without unhandled exceptions.
+
 ## 1.0.8
 - Fix: Hardcoded file naming in `mcf_new` template to prevent `_cubit.dart` generation errors.
 - Fix: Resolved strict linter errors in generated Data Layer files (`user_model.dart`, `user_repository_impl.dart`).
@@ -27,4 +32,3 @@
 
 ## 1.0.0
 - Initial release.
-...
