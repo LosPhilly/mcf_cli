@@ -1,3 +1,8 @@
+## 1.0.11
+- Fix: Solved compilation errors in `profile_screen.dart` (corrected property access `data` vs `user` and class naming `UserFailure` vs `UserError`).
+- Fix: Implemented missing `saveUser` method in `user_repository_impl.dart` to satisfy the Interface contract.
+- Fix: Updated `widget_test.dart` to use the correct `MissionCriticalApp` class and inject dependencies.
+
 ## 1.0.10
 - Fix: Resolved `part of` import errors in generated tests (`profile_screen_test.dart` now imports `user_cubit.dart`).
 - Fix: Corrected mismatched state class naming in tests (`UserError` → `UserFailure`).

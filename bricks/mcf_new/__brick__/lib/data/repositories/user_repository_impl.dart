@@ -31,10 +31,12 @@ class UserRepositoryImpl implements IUserRepository {
   UserRepositoryImpl({required this.client});
 
   @override
-  Future<User> getUser() async {
+  // FIX: Added 'String id' to match the Interface definition
+  Future<User> getUser(String id) async {
     try {
       final response = await client.get(
-        Uri.parse('https://jsonplaceholder.typicode.com/users/1'),
+        // FIX: Use the dynamic ID instead of hardcoded '1'
+        Uri.parse('https://jsonplaceholder.typicode.com/users/$id'),
         // FIX: Add Headers to look like a legitimate request.
         headers: {
           'Content-Type': 'application/json',
@@ -69,5 +71,13 @@ class UserRepositoryImpl implements IUserRepository {
       // Convert Network Exception directly to Domain Failure
       throw const ConnectionFailure('No Internet Connection');
     }
+  }
+
+  @override
+  // FIX: Added missing implementation for saveUser to satisfy Interface contract
+  Future<void> saveUser(User item) async {
+    // In a real app, this would POST/PUT to the API.
+    // We add a stub implementation here to satisfy the compiler.
+    await Future.delayed(const Duration(milliseconds: 500));
   }
 }

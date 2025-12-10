@@ -1,6 +1,6 @@
 /*
  * Mission-Critical Flutter
- * Copyright (c) 2025 Carlos Philips / Mission-Critical Flutter
+ * Copyright (c) 2025 Carlos Phillips / Mission-Critical Flutter
  * This file is part of the "Mission-Critical Flutter" reference implementation.
  * It strictly adheres to the architectural rules defined in the book.
  * Author: Carlos Phillips
@@ -10,11 +10,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-// Note: These imports assume you also include the User feature in the brick.
-// If you haven't added UserCubit/UserEntity to mcf_new yet, this will error until you do.
+// FIX: Import the Cubit (Parent), NOT the State (Part file)
 import 'package:{{project_name.snakeCase()}}/domain/entities/user.dart';
 import 'package:{{project_name.snakeCase()}}/presentation/cubit/user_cubit.dart';
-import 'package:{{project_name.snakeCase()}}/presentation/cubit/user_state.dart';
 
 class UserProfileScreen extends StatelessWidget {
   // MCF Rule 4.7: Const constructor for performance optimization
@@ -45,11 +43,12 @@ class _ProfileBody extends StatelessWidget {
         return switch (state) {
           UserInitial() => const SizedBox.shrink(),
           UserLoading() => const Center(child: CircularProgressIndicator()),
-          UserError(message: final msg) => _ErrorDisplay(message: msg),
 
-          // FIX: Pass the full 'user' entity directly.
-          // The child widget now handles parsing the nested data.
-          UserLoaded(user: final user) => _CrewDataDisplay(user: user),
+          // FIX: Class name is UserFailure, not UserError
+          UserFailure(message: final msg) => _ErrorDisplay(message: msg),
+
+          // FIX: Property is named 'data' in UserLoaded, not 'user'
+          UserLoaded(data: final user) => _CrewDataDisplay(user: user),
         };
       },
     );
@@ -61,7 +60,7 @@ class _ProfileBody extends StatelessWidget {
 /// MCF Rule 2.1.2: No logic, just rendering data passed in via constructor.
 class _CrewDataDisplay extends StatelessWidget {
   const _CrewDataDisplay({
-    required this.user, // Updated: Pass full Entity instead of 10 separate fields
+    required this.user,
   });
 
   final User user;
@@ -99,7 +98,7 @@ class _CrewDataDisplay extends StatelessWidget {
             const SizedBox(height: 32),
 
             // --- Section 1: Contact ---
-            _SectionHeader(title: 'CONTACT'),
+            const _SectionHeader(title: 'CONTACT'),
             _ContactTile(icon: Icons.email, label: user.email),
             _ContactTile(icon: Icons.phone, label: user.phone),
             _ContactTile(icon: Icons.language, label: user.website),
@@ -107,7 +106,7 @@ class _CrewDataDisplay extends StatelessWidget {
             const Divider(indent: 32, endIndent: 32),
 
             // --- Section 2: Organization ---
-            _SectionHeader(title: 'ORGANIZATION'),
+            const _SectionHeader(title: 'ORGANIZATION'),
             _ContactTile(icon: Icons.business, label: user.company.name),
             Padding(
               padding:
@@ -126,7 +125,7 @@ class _CrewDataDisplay extends StatelessWidget {
             const Divider(indent: 32, endIndent: 32),
 
             // --- Section 3: Location ---
-            _SectionHeader(title: 'LOCATION'),
+            const _SectionHeader(title: 'LOCATION'),
             _ContactTile(
               icon: Icons.location_on,
               label: '${user.address.street}, ${user.address.city}',
@@ -245,8 +244,8 @@ class _ErrorDisplay extends StatelessWidget {
           Text(message),
           const SizedBox(height: 16),
           ElevatedButton(
-            // Note: This relies on the UserCubit being present in context
-            onPressed: () => context.read<UserCubit>().loadProfile(),
+            // FIX: Method name is loadUser(id), not loadProfile()
+            onPressed: () => context.read<UserCubit>().loadUser('1'),
             child: const Text('RETRY CONNECTION'),
           ),
         ],
