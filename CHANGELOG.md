@@ -1,7 +1,9 @@
 ## 1.0.12
-- Fix: Updated `analysis_options.yaml` to exclude `tool/` folder from linting (fixes 180+ linter errors).
-- Fix: Updated `user_cubit_test.dart` to use correct API (`loadUser`) and State names (`UserFailure`).
-- Fix: Updated `widget_test.dart` to inject dependencies correctly.
+- Fix: Updated `analysis_options.yaml` to exclude `tool/` from linting and disabled `directives_ordering` to support dynamic template names.
+- Fix: Resolved all strict linter warnings in generated code (imports, line lengths, doc comments, trailing commas).
+- Fix: Converted Golden Tests to Smoke Tests to ensure cross-platform compatibility (Windows/Mac/Linux) out of the box.
+- Fix: Updated `user_cubit_test.dart` with valid Mock Data to prevent compilation errors in new projects.
+- Fix: Corrected logic in `profile_screen.dart` to match the Cubit API (`loadUser` vs `loadProfile`).
 
 ## 1.0.11
 - Fix: Solved compilation errors in `profile_screen.dart` (corrected property access `data` vs `user` and class naming `UserFailure` vs `UserError`).

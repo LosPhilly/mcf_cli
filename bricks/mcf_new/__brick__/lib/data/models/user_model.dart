@@ -7,14 +7,14 @@
  * License: MIT (see LICENSE file)
  */
 
-/// lib\data\models\user_model.dart
+// lib\data\models\user_model.dart
 import 'package:{{project_name.snakeCase()}}/domain/entities/address.dart';
 import 'package:{{project_name.snakeCase()}}/domain/entities/company.dart';
 import 'package:{{project_name.snakeCase()}}/domain/entities/user.dart';
 
-/// A Data Transfer Object (DTO) that extends the Domain Entity.
-/// This keeps the Domain pure (no JSON code in lib/domain).
-/// DTO for the main User object.
+// A Data Transfer Object (DTO) that extends the Domain Entity.
+// This keeps the Domain pure (no JSON code in lib/domain).
+// DTO for the main User object.
 class UserModel extends User {
   const UserModel({
     required super.id,
@@ -28,7 +28,7 @@ class UserModel extends User {
     required super.company, // New required field
   });
 
-  /// Factory to parse raw JSON into a safe, typed object.
+  // Factory to parse raw JSON into a safe, typed object.
   factory UserModel.fromJson(Map<String, dynamic> json) {
     // Defensive coding: Handle missing keys or bad types gracefully
     // (MCF Rule 3.5: Explicit Casting)
@@ -51,7 +51,7 @@ class UserModel extends User {
     );
   }
 
-  /// Convert back to JSON if we needed to send data to the server.
+  // Convert back to JSON if we needed to send data to the server.
   Map<String, dynamic> toJson() {
     return {
       'id': int.tryParse(id), // Convert back to int for API consistency

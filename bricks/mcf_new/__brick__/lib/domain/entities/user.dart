@@ -1,16 +1,11 @@
 /*
  * Mission-Critical Flutter
  * Copyright (c) 2025 Carlos Phillips / Mission-Critical Flutter
- * This file is part of the "Mission-Critical Flutter" reference implementation.
- * It strictly adheres to the architectural rules defined in the book.
- * Author: Carlos Phillips
  * License: MIT (see LICENSE file)
  */
 
-// File: lib/domain/entities/user.dart
-// Pure Dart. No Flutter dependencies.
-import 'address.dart';
-import 'company.dart';
+import 'package:{{project_name.snakeCase()}}/domain/entities/address.dart';
+import 'package:{{project_name.snakeCase()}}/domain/entities/company.dart';
 
 class User {
   const User({
@@ -33,7 +28,7 @@ class User {
   final String website;
   final bool isAdmin;
 
-  // New Complex Types
+  // Complex Types
   final Address address;
   final Company company;
 }

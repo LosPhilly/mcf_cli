@@ -1,16 +1,12 @@
 /*
  * Mission-Critical Flutter
  * Copyright (c) 2025 Carlos Phillips / Mission-Critical Flutter
- * This file is part of the "Mission-Critical Flutter" reference implementation.
- * It strictly adheres to the architectural rules defined in the book.
- * Author: Carlos Phillips
  * License: MIT (see LICENSE file)
  */
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-// FIX: Import the Cubit (Parent), NOT the State (Part file)
 import 'package:{{project_name.snakeCase()}}/domain/entities/user.dart';
 import 'package:{{project_name.snakeCase()}}/presentation/cubit/user_cubit.dart';
 
@@ -43,11 +39,7 @@ class _ProfileBody extends StatelessWidget {
         return switch (state) {
           UserInitial() => const SizedBox.shrink(),
           UserLoading() => const Center(child: CircularProgressIndicator()),
-
-          // FIX: Class name is UserFailure, not UserError
           UserFailure(message: final msg) => _ErrorDisplay(message: msg),
-
-          // FIX: Property is named 'data' in UserLoaded, not 'user'
           UserLoaded(data: final user) => _CrewDataDisplay(user: user),
         };
       },
@@ -109,8 +101,7 @@ class _CrewDataDisplay extends StatelessWidget {
             const _SectionHeader(title: 'ORGANIZATION'),
             _ContactTile(icon: Icons.business, label: user.company.name),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 32.0, vertical: 4.0),
+              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 4),
               child: Text(
                 '"${user.company.catchPhrase}"',
                 textAlign: TextAlign.center,
@@ -147,13 +138,13 @@ class _CrewDataDisplay extends StatelessWidget {
 // --- Helper Components ---
 
 class _SectionHeader extends StatelessWidget {
-  final String title;
   const _SectionHeader({required this.title});
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8.0, top: 8.0),
+      padding: const EdgeInsets.only(bottom: 8, top: 8),
       child: Text(
         title,
         style: const TextStyle(
@@ -168,10 +159,10 @@ class _SectionHeader extends StatelessWidget {
 }
 
 class _ContactTile extends StatelessWidget {
+  const _ContactTile({required this.icon, required this.label});
+
   final IconData icon;
   final String label;
-
-  const _ContactTile({required this.icon, required this.label});
 
   @override
   Widget build(BuildContext context) {
@@ -244,7 +235,7 @@ class _ErrorDisplay extends StatelessWidget {
           Text(message),
           const SizedBox(height: 16),
           ElevatedButton(
-            // FIX: Method name is loadUser(id), not loadProfile()
+            // Logic Trigger: Loads User 1
             onPressed: () => context.read<UserCubit>().loadUser('1'),
             child: const Text('RETRY CONNECTION'),
           ),

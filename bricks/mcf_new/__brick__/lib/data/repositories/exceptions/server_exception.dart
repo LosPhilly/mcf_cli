@@ -7,9 +7,9 @@
  * License: MIT (see LICENSE file)
  */
 
-/// Thrown when the Data Layer encounters a non-200 status code or
-/// a network connectivity failure.
-/// /// lib\data\repositories\exceptions\server_exception.dart
+// Thrown when the Data Layer encounters a non-200 status code or
+// a network connectivity failure.
+// // lib\data\repositories\exceptions\server_exception.dart
 class ServerException implements Exception {
   const ServerException({
     required this.message,

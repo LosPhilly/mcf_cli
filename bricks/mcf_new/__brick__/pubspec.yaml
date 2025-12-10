@@ -5,40 +5,32 @@
 
 name: {{project_name.snakeCase()}}
 description: A Mission-Critical Flutter project created with mcf_cli.
-publish_to: 'none'
 version: 1.0.0+1
-
-authors:
-  - Carlos Phillips <505techgeeks@gmail.com>
+publish_to: 'none'
 homepage: https://github.com/LosPhilly/mission-critical-flutter
 
 environment:
   sdk: '>=3.1.5 <4.0.0'
 
 dependencies:
+  # Sorted alphabetically for 'sort_pub_dependencies' rule
+  cupertino_icons: ^1.0.2
+  decimal: ^2.3.3        # Required for Financial Math (No Doubles)
+  equatable: ^2.0.7      # Value Equality
   flutter:
     sdk: flutter
-  
-  # --- Core MCF Architecture ---
   flutter_bloc: ^9.1.1   # State Management
-  equatable: ^2.0.7      # Value Equality
   http: ^1.6.0           # Networking
   uuid: ^4.2.1           # Required for Entity IDs
-  decimal: ^2.3.3        # Required for Financial Math (No Doubles)
-  cupertino_icons: ^1.0.2
 
 dev_dependencies:
+  # Sorted alphabetically for 'sort_pub_dependencies' rule
+  bloc_test: ^10.0.0
+  flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
-  
-  # --- The Enforcer ---
-  very_good_analysis: ^5.1.0  # Strict Linting Rules
-  
-  # --- Testing Tools ---
-  # (Moved to dev_dependencies to reduce app size)
-  bloc_test: ^10.0.0
   mocktail: ^1.0.4
-  flutter_lints: ^2.0.0
+  very_good_analysis: ^5.1.0  # Strict Linting Rules
 
 flutter:
   uses-material-design: true

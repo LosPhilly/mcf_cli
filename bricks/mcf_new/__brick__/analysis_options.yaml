@@ -43,7 +43,8 @@ linter:
     # --- Type Safety & Null Safety (MCF Chapter 3) ---
     avoid_dynamic_calls: true
     always_specify_types: false     # Kept false to allow 'var' when inference is strictly safe.
-    
+    # FIX: Disable strict import sorting because template names are dynamic
+    directives_ordering: false
     # --- Immutability & Constants (MCF Rule 3.6) ---
     prefer_const_constructors: true
     prefer_const_declarations: true

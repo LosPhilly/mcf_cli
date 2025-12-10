@@ -5,27 +5,27 @@
  * * Usage: dart run tool/audit.dart
  */
 
-/// ----------------------------------------------------------------------------
-/// MCF AUDIT TOOL
-/// ----------------------------------------------------------------------------
-///
-/// USAGE:
-/// Run this command from the root of your project:
-///   dart run tool/audit.dart
-///
-/// DESCRIPTION:
-/// This tool automatically scans your codebase against the "Mission-Critical Flutter"
-/// architectural standards (MCF Rules). It performs a deep inspection of:
-///   1. Layer Isolation (Ensures Domain never imports Data/UI).
-///   2. Strict Linting (Verifies analysis_options.yaml).
-///   3. Safety Checks (Scans for forbidden '!' bang operators).
-///   4. Branding (Verifies Copyright Headers).
-///   5. Toolchain Health (Runs 'flutter analyze' and 'flutter test').
-///
-/// EXIT CODES:
-///   0 = Success (System Secure - CI/CD Pipeline can proceed).
-///   1 = Failure (Critical Violations Detected - Build should fail).
-/// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+// MCF AUDIT TOOL
+// ----------------------------------------------------------------------------
+//
+// USAGE:
+// Run this command from the root of your project:
+//   dart run tool/audit.dart
+//
+// DESCRIPTION:
+// This tool automatically scans your codebase against the "Mission-Critical Flutter"
+// architectural standards (MCF Rules). It performs a deep inspection of:
+//   1. Layer Isolation (Ensures Domain never imports Data/UI).
+//   2. Strict Linting (Verifies analysis_options.yaml).
+//   3. Safety Checks (Scans for forbidden '!' bang operators).
+//   4. Branding (Verifies Copyright Headers).
+//   5. Toolchain Health (Runs 'flutter analyze' and 'flutter test').
+//
+// EXIT CODES:
+//   0 = Success (System Secure - CI/CD Pipeline can proceed).
+//   1 = Failure (Critical Violations Detected - Build should fail).
+// ----------------------------------------------------------------------------
 
 import 'dart:io';
 
@@ -85,7 +85,7 @@ void main() async {
   }
 }
 
-/// Helper to run Flutter CLI commands
+// Helper to run Flutter CLI commands
 Future<bool> _runFlutterCommand(String command, String label) async {
   stdout.write('Running $label (flutter $command)... ');
 
@@ -113,7 +113,7 @@ Future<bool> _runFlutterCommand(String command, String label) async {
   }
 }
 
-/// Rule 3.1: strict-casts, strict-inference, strict-raw-types
+// Rule 3.1: strict-casts, strict-inference, strict-raw-types
 Future<int> _verifyAnalysisOptions(Directory root) async {
   stdout.write('Checking analysis_options.yaml... ');
   final file = File('${root.path}/analysis_options.yaml');
@@ -138,7 +138,7 @@ Future<int> _verifyAnalysisOptions(Directory root) async {
   return 0;
 }
 
-/// Rule 2.2: Domain cannot import Data or Presentation
+// Rule 2.2: Domain cannot import Data or Presentation
 Future<int> _verifyLayerIsolation(Directory root) async {
   stdout.write('Verifying Domain Layer Isolation... ');
   final domainDir = Directory('${root.path}/lib/domain');
@@ -185,7 +185,7 @@ Future<int> _verifyLayerIsolation(Directory root) async {
   return violations;
 }
 
-/// Rule 3.4: The Force Unwrap (!) is prohibited
+// Rule 3.4: The Force Unwrap (!) is prohibited
 Future<int> _verifyNoBangOperator(Directory root) async {
   stdout.write('Scanning for Bang Operator (!)... ');
   final libDir = Directory('${root.path}/lib');
@@ -229,7 +229,7 @@ Future<int> _verifyNoBangOperator(Directory root) async {
   return violations;
 }
 
-/// Branding Check
+// Branding Check
 Future<int> _verifyHeaders(Directory root) async {
   stdout.write('Verifying Copyright Headers... ');
   final libDir = Directory('${root.path}/lib');

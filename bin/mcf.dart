@@ -61,7 +61,7 @@ void main(List<String> arguments) async {
   }
 }
 
-/// SMART FIX: Reads the current pubspec.yaml to find the REAL project name.
+// SMART FIX: Reads the current pubspec.yaml to find the REAL project name.
 String? _detectProjectName() {
   final pubspecFile = File('pubspec.yaml');
   if (pubspecFile.existsSync()) {

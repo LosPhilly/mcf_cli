@@ -1,16 +1,16 @@
 /*
  * Mission-Critical Flutter
  * Copyright (c) 2025 Carlos Phillips / Mission-Critical Flutter
- * This file is part of the "Mission-Critical Flutter" reference implementation.
- * It strictly adheres to the architectural rules defined in the book.
- * Author: Carlos Phillips
  * License: MIT (see LICENSE file)
  */
 
 // The abstract contract for all logic failures
-abstract class Failure {
+abstract class Failure implements Exception {
   const Failure(this.message);
   final String message;
+
+  @override
+  String toString() => '$runtimeType: $message';
 }
 
 // Specific failure types for the Logic/UI to react to
