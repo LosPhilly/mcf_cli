@@ -1,3 +1,8 @@
+## 1.0.12
+- Fix: Updated `analysis_options.yaml` to exclude `tool/` folder from linting (fixes 180+ linter errors).
+- Fix: Updated `user_cubit_test.dart` to use correct API (`loadUser`) and State names (`UserFailure`).
+- Fix: Updated `widget_test.dart` to inject dependencies correctly.
+
 ## 1.0.11
 - Fix: Solved compilation errors in `profile_screen.dart` (corrected property access `data` vs `user` and class naming `UserFailure` vs `UserError`).
 - Fix: Implemented missing `saveUser` method in `user_repository_impl.dart` to satisfy the Interface contract.

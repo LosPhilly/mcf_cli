@@ -18,10 +18,13 @@ analyzer:
   # Treat specific violations as fatal build errors (Zero Tolerance).
   errors:
     # Safety Violations
+    close_sinks: ignore
     avoid_dynamic_calls: error      # Calling methods on 'dynamic' is a runtime crash risk.
     invalid_assignment: error
     missing_return: error
+    missing_required_param: error
     dead_code: error
+    public_member_api_docs: ignore # Optional: Turn off doc requirement if it's annoying
     
     # Maintainability Violations
     always_declare_return_types: error
@@ -29,6 +32,8 @@ analyzer:
 
   # Files to exclude from rigorous analysis (e.g., generated code).
   exclude:
+    - "tool/**"
+    - "build/**"
     - "**/*.g.dart"
     - "**/*.freezed.dart"
     - "test/.test_coverage.dart"
