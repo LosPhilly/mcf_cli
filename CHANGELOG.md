@@ -1,3 +1,13 @@
+## 1.0.15
+- **Feature**: Enhanced Audit Tool with strict enforcement of "Pure Dart" Domain logic.
+- **Fix**: The audit tool now explicitly flags platform-specific dependencies (`dart:io`, `dart:html`, `dart:ui`) in the Domain layer as violations.
+- **Rationale**: Domain entities must remain platform-agnostic to ensure testability and prevent the "Dart:IO Trap."
+
+## 1.0.14
+- Fix: Added CHECK 3 to audit list: Platform Dependencies (The "Dart:IO" Trap)
+            Domain must be Pure Dart. It cannot know about the File System (IO) 
+            or the Browser (HTML) or the Rendering Engine (UI).
+
 ## 1.0.13
 - Fix: Moved `widget_test.dart` to the root `test/` directory to correctly overwrite the default Flutter test file.
 - Fix: Resolved file collision where `flutter test` would fail due to duplicate widget tests (one checking `MyApp`, one checking `MissionCriticalApp`).
