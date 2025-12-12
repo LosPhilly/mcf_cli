@@ -17,6 +17,9 @@ void main() {
   print('===============================================================');
   print('');
 
+  // ----------------------------------------------------------------------
+  // SCENARIO: A developer starts with a standard, unsafe Flutter app.
+  // ----------------------------------------------------------------------
   print('STEP 1: Create a standard Flutter App');
   print('-------------------------------------');
   print('\$ flutter create flight_app');
@@ -25,6 +28,9 @@ void main() {
   print('  All done!');
   print('');
 
+  // ----------------------------------------------------------------------
+  // SCENARIO: They run 'mcf new' to inject the architecture.
+  // ----------------------------------------------------------------------
   print('STEP 2: Upgrade to Forensic-Grade Architecture');
   print('----------------------------------------------');
   print('\$ cd flight_app');
@@ -35,7 +41,7 @@ void main() {
   print('  ? What is the organization? (com.example) com.alliance');
   print('');
 
-  // Highlighting the intelligent overwrite protection
+  // Highlight: Intelligent overwrite protection for incompatible files
   print('  ⚠️  Conflict detected: test/widget_test.dart');
   print(
       '      (The default Flutter test is incompatible with MCF Architecture)');
@@ -47,14 +53,23 @@ void main() {
   print('    - Created Clean Architecture Layers (Domain, Data, Presentation)');
   print('');
 
+  // ----------------------------------------------------------------------
+  // SCENARIO: They run 'mcf audit' to verify system integrity.
+  // ----------------------------------------------------------------------
   print('STEP 3: Verify Compliance');
   print('-------------------------');
   print('\$ mcf audit');
   print('  🔍 Running Compliance Audit...');
-  print('  [PASS] Static Pattern Analysis');
-  print('  [PASS] Domain Layer Isolation');
-  print('  [PASS] Linter Compliance');
-  print('  [PASS] Test Suite Verification');
+  print('');
+  print('  [PHASE 1] Static Pattern Analysis');
+  print('   ✓ Domain Layer Isolation (Rule 2.2)');
+  print('   ✓ Pure Logic Verification (Rule 2.4)');
+  print('   ✓ Build Method Complexity (Rule 2.5)');
+  print('   ✓ Safety Checks (No Bang Operator)');
+  print('');
+  print('  [PHASE 2] Toolchain Verification');
+  print('   ✓ Linter Compliance (Strict Mode)');
+  print('   ✓ Test Suite Verification');
   print('');
   print('  ✓ AUDIT PASSED. SYSTEM SECURE.');
   print('');
