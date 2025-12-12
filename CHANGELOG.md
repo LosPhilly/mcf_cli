@@ -1,3 +1,8 @@
+## 1.0.16
+- **Fix**: Updated `pubspec.yaml` repository URL to point to the correct root repository (`mcf_cli`) to resolve pub.dev verification errors.
+- **Compliance**: Achieved 100% pub.dev health score (160/160) by ensuring repository metadata matches the hosted package.
+- **Note**: This is a metadata-only release; CLI functionality remains unchanged from v1.0.15.
+
 ## 1.0.15
 - **Feature**: Enhanced Audit Tool with strict enforcement of "Pure Dart" Domain logic.
 - **Fix**: The audit tool now explicitly flags platform-specific dependencies (`dart:io`, `dart:html`, `dart:ui`) in the Domain layer as violations.
